@@ -31,13 +31,14 @@ colorscheme solarized
 :nmap <C-e> :e#<CR>
 :nmap <C-n> :bnext<CR>
 :nmap <C-p> :bprev<CR>
+:nmap <C-f> :CtrlP<CR>
                         
 " configure ctrlp
 :nmap ; :CtrlPBuffer<CR>
 :let g:ctrlp_map = '<Leader>t'
-":let g:ctrlp_match_window_bottom = 0
-":let g:ctrlp_match_window_reversed = 0
-":let g:ctrlp_custom_ignore =  '\v\~$|\.(o|swp|pyc)$|^|[\//])\.(hg|git|bzr)($|[/\//])|__init__\.py'
+:let g:ctrlp_match_window_bottom = 0
+:let g:ctrlp_match_window_reversed = 0
+:let g:ctrlp_custom_ignore =  '\v\~$|\.(o|swp|pyc)$|(^|[\//])\.(hg|git|bzr)($|[/\//])|__init__\.py'
 :let g:ctrlp_working_path_mode = 0
 :let g:ctrlp_dotfiles = 0
 :let g:ctrlp_switch_buffer = 0
@@ -50,4 +51,14 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
         set t_Co=256
 endif
 
+set laststatus=2
 
+" some python related stuff
+if !exists("autocommands_loaded")
+  let autocommands_loaded = 1
+  autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/vimrc-python
+endif
+
+" This beauty remembers where you were the last time you edited the file,
+" and returns to the same position.
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
