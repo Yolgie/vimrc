@@ -2,8 +2,8 @@ call pathogen#infect()
 syntax on
 filetype plugin indent on
 
-:set et
-:set ts=2
+:set expandtab
+:set ts=2 sts=2 sw=2
 
 syntax enable
 colorscheme solarized
@@ -15,6 +15,9 @@ colorscheme solarized
 " go up/down line-wise
 :nmap j gj
 :nmap k gk
+
+" tagbar
+:nmap \t :TagbarToggle<CR>
 
 " make command line work like bash command line
 :cnoremap <C-a> <Home>
@@ -45,6 +48,7 @@ colorscheme solarized
 
 " nerdtree
 :nmap \e :NERDTreeToggle<CR>
+:let NERDTreeIgnore = ['\.pyc$', '__init__\.py$', '__pycache__$']
 
 " set 256 colors
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
@@ -62,3 +66,9 @@ endif
 " This beauty remembers where you were the last time you edited the file,
 " and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+" set a shortcut for symbol list
+:nmap \s :TagbarOpen<CR>
+
+:nmap \l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
