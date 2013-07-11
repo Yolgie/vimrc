@@ -6,7 +6,12 @@ filetype plugin indent on
 :set ts=2 sts=2 sw=2
 
 syntax enable
-colorscheme solarized
+
+if has("gui_running")
+  colorscheme solarized
+else
+  colorscheme desert
+endif
 
 " test some stuff
 :nmap \l :setlocal number!<CR>
