@@ -77,3 +77,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 
 :nmap \l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
+
+" vim-rspec
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+map <Leader>r :call RunCurrentSpecFile()<CR>
