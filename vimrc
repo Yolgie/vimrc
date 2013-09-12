@@ -16,6 +16,9 @@ else
   set background=dark
 endif
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 " test some stuff
 nmap \l :setlocal number!<CR>
 nmap \o :set paste!<CR>
