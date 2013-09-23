@@ -1,12 +1,17 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="gallois"
+ZSH_THEME="ys"
 
-# Uncomment to change how often before auto-updates occur? (in days)
+# how often before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=7
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+DISABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="false"
+
+# zsh function to open a file in x (in background and without stdout/sdterr)
+xopen() {
+  xdg-open $1 > /dev/null 2>&1 &
+}
 
 # always start tmux
 export ZSH_TMUX_AUTOSTART=true
@@ -22,7 +27,8 @@ unsetopt correct
 unsetopt correct_all
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
-export PATH=/home/andy/.local/bin:$PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin
+export PATH=$PATH:/usr/local/games:/usr/games
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(rbenv init -)"
