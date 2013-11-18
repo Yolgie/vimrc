@@ -4,7 +4,7 @@
 
 dir=~/.dotfiles
 backup=~/.dotfiles_backup
-files="zshrc gitconfig irbrc vim vimrc gvimrc tmux.conf"
+files="zshrc gitconfig irbrc vim vimrc gvimrc tmux.conf mpdconf mpd conkyrc"
 folders="vim"
 
 # create backup dir
@@ -46,6 +46,19 @@ done
 echo "Special Case Terminator"
 specialpath=~/.config/terminator/config
 special="terminator_config"
+if [[ `readlink -f $specialpath` == $dir/$special ]]; then
+  echo "$specialpath already points to $dir/$special"
+else
+  echo "Moving $specialpath to $backup/$special"
+  mv $specialpath $backup/$special
+  echo "Creating symlink to $dir/$special from $specialpath"
+  ln -s $dir/$special $specialpath
+fi
+
+# tint2
+echo "Special Case tint2"
+specialpath=~/.config/tint2/tint2rc
+special="tint2rc"
 if [[ `readlink -f $specialpath` == $dir/$special ]]; then
   echo "$specialpath already points to $dir/$special"
 else

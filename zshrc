@@ -31,4 +31,10 @@ export PATH=$PATH:/usr/local/bin:/usr/bin:/bin
 export PATH=$PATH:/usr/local/games:/usr/games
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.rbenv/bin
+
+# Use Vim for everything
+export VISUAL=gvim
+export EDITOR=vim
+
+# Ruby rbenv
 eval "$(rbenv init -)"
