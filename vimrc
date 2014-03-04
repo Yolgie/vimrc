@@ -13,6 +13,11 @@ else
   colorscheme desert
 endif
 
+" save with W also
+:command W w
+:command Wq wq
+:command WQ wq
+
 " test some stuff
 :nmap \l :setlocal number!<CR>
 :nmap \o :set paste!<CR>
