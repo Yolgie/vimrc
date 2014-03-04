@@ -22,6 +22,9 @@ plugins=(rails git git-extras ruby bundler cap gem gnu-utils rake rbenv systemd 
 
 source $ZSH/oh-my-zsh.sh
 
+# Commands that start wit a ' ' are not put into the zsh history
+setopt HIST_IGNORE_SPACE
+
 # disable autocorrection
 unsetopt correct
 unsetopt correct_all
