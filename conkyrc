@@ -87,6 +87,11 @@ Down: ${downspeed eth0} k/s ${alignr}Up: ${upspeed eth0} k/s
 ${color lightgray}${downspeedgraph eth0 20,80 444444 eeeeee} ${alignr}${upspeedgraph eth0 20,80 444444 eeeeee}$color
 Total: ${totaldown eth0} ${alignr}Total: ${totalup eth0}
 
+${endif}${if_existing /sys/class/net/usb0/operstate unknown}IP (usb0):$alignr${addr usb0}
+Down: ${downspeed usb0} k/s ${alignr}Up: ${upspeed usb0} k/s
+${color lightgray}${downspeedgraph usb0 20,80 444444 eeeeee} ${alignr}${upspeedgraph usb0 20,80 444444 eeeeee}$color
+Total: ${totaldown usb0} ${alignr}Total: ${totalup usb0}
+
 ${endif}${if_existing /sys/class/net/wlan0/operstate up}IP (wlan0):$alignr${addr wlan0}
 ${wireless_essid wlan0} (${wireless_link_qual_perc wlan0}%) ${alignr}${wireless_bitrate wlan0}
 Down: ${downspeed wlan0} k/s ${alignr}Up: ${upspeed wlan0} k/s
@@ -106,17 +111,14 @@ Dropbox$alignr ${execi 5 dropbox status | head -n 1}
 
 S H O R T C U T    K E Y S
 ${hr}
-Alt+F2$alignr Run Dialog
+Super+Space$alignr Launcher
+Alt+F2$alignr Main Menu
 Alt+F3$alignr Alt Menu
-Super+Space$alignr Main Menu
 Super+Tab$alignr Client Menu
 Super+t$alignr Terminal
 Super+f$alignr File Manager
 Super+e$alignr Editor
-Super+m$alignr Media Player
 Super+w$alignr Web Browser
 Super+h$alignr Task Manager
 Super+l$alignr Lock Screen
-Super+v$alignr Volume Control
 Super+x$alignr Logout
-PrtSc$alignr Screenshot
