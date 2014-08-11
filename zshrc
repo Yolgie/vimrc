@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="ys"
 
 # how often before auto-updates occur? (in days)
-export UPDATE_ZSH_DAYS=7
+export UPDATE_ZSH_DAYS=3
 
 DISABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="false"
@@ -31,8 +31,7 @@ unsetopt correct_all
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin
-export PATH=$PATH:/usr/local/games:/usr/games
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin
 export PATH=$PATH:$HOME/.rbenv/bin
 
 # Use Vim for everything
